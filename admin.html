@@ -47,7 +47,7 @@
       <section>
         <h1 class="display-3 my-5 text-center">Administrar Productos</h1>
         <hr />
-        <form>
+        <form id="formProducto">
           <div class="mb-3">
             <label for="codigo" class="form-label">Codigo</label>
             <input
@@ -55,8 +55,9 @@
               class="form-control"
               id="codigo"
               placeholder="12345"
-              
             />
+            <div class="invalid-feedback"></div>
+            pone algo boton
           </div>
           <div class="mb-3">
             <label for="producto" class="form-label">Producto</label>
@@ -68,7 +69,7 @@
             />
           </div>
           <div class="mb-3">
-            <label for="codigo" class="form-label">Descripcion</label>
+            <label for="descripcion" class="form-label">Descripcion</label>
             <textarea
               id="descripcion"
               rows="3"
@@ -79,7 +80,7 @@
           <div class="mb-3">
             <label for="cantidad" class="form-label">Cantidad</label>
             <input
-              type="number"
+              type="text"
               class="form-control"
               id="cantidad"
               placeholder="10"
@@ -96,6 +97,9 @@
           </div>
           <button class="btn btn-primary" type="submit">Guardar</button>
         </form>
+        <div class="alert alert-danger my-5 d-none" role="alert" id="msjAlerta">
+          Debe completar todos los datos
+        </div>
       </section>
     </main>
     <footer></footer>
