@@ -31,7 +31,7 @@ campoURL.addEventListener("blur", () => {
 });
 formularioProducto.addEventListener("submit", guardarProducto);
 //lista de producto
-let listaProductos = [];
+let listaProductos = JSON.parse(localStorage.getItem('listaProductosKey')) || []; 
 
 function guardarProducto(e) {
   e.preventDefault();
@@ -66,6 +66,15 @@ function crearProducto() {
   console.log (listaProductos)
   // limpiar el formulario
   limpiarFormulario();
+  //guardar en localstorage el arreglo de productos
+  guardarLocalStorage();
+  //mostrar un msj al usuario
+  Swal.fire(
+    'Producto Creado!',
+    'Su producto fue creado exitosamente!',
+    'success'
+  )
+
 }
 
 function limpiarFormulario (){
@@ -77,4 +86,8 @@ function limpiarFormulario (){
   campoDescripcion.className = 'form-control'
   campoCantidad.className = 'form-control'
   campoURL.className = 'form-control'
+}
+
+function guardarLocalStorage(){
+  localStorage.setItem('listaProductosKey', JSON.stringify(listaProductos));
 }
