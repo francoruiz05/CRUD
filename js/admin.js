@@ -33,6 +33,9 @@ formularioProducto.addEventListener("submit", guardarProducto);
 //lista de producto
 let listaProductos = JSON.parse(localStorage.getItem('listaProductosKey')) || []; 
 
+//llamar la funcion cargainicial
+cargarInicial ();
+
 function guardarProducto(e) {
   e.preventDefault();
   // validar los campos del formulario
@@ -74,6 +77,8 @@ function crearProducto() {
     'Su producto fue creado exitosamente!',
     'success'
   )
+  // creo una nueva fila en la tabla
+  crearfila (productoNuevo);
 
 }
 
@@ -90,4 +95,33 @@ function limpiarFormulario (){
 
 function guardarLocalStorage(){
   localStorage.setItem('listaProductosKey', JSON.stringify(listaProductos));
+}
+
+function crearfila(producto) {
+  let tabla = document.querySelector ('#tablaProductos')
+  tabla.innerHTML += `<tr>
+  <td>${producto.codigo}</td>
+  <td>${producto.producto}</td>
+  <td>${producto.descripcion}</td>
+  <td>${producto.cantidad}</td>
+  <td>${producto.url}</td>
+  <td>
+    <button class="btn btn-warning">Editar</button>
+    <button class="btn btn-danger">Borrar</button>
+  </td>
+</tr>`;
+}
+
+function cargarInicial(){
+  // si hay datos en localstorage o en listasproductos, dibujo filas
+  if (listaProductos.length > 0){
+    // dibujar fila
+    listaProductos.forEach ((itemProducto)=> {crearfila(itemProducto) })
+  }
+}
+
+function borrarTabla (){
+  let tabla = document.querySelector ('#tablaProductos')
+  tabla.innerHTML='';
+
 }
