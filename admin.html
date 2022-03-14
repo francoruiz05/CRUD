@@ -69,6 +69,7 @@
               id="producto"
               placeholder="ingrese producto"
             />
+            
           </div>
           <div class="mb-3">
             <label for="descripcion" class="form-label">Descripcion</label>
@@ -93,11 +94,18 @@
             <input type="text" class="form-control" id="url" placeholder="10" />
           </div>
           <button class="btn btn-primary" type="submit">Guardar</button>
+          
         </form>
         <div class="alert alert-danger my-5 d-none" role="alert" id="msjAlerta">
           Debe completar todos los datos
         </div>
+      
       </section>
+
+      <section class="my-5">
+        <button class="btn btn-primary" id="btnAgregar">Nuevo</button>
+        <button class="btn btn-secondary" id ="btnDatosPrueba" disabled>Cargar datos de prueba</button>
+      
       <div class="table-responsive">
         <table class="table my-5">
           <thead>
@@ -114,6 +122,7 @@
           </tbody>
         </table>
       </div>
+    </section>
     </main>
     <footer></footer>
     <script src="/css/bootstrap.min.css"></script>
