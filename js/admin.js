@@ -84,6 +84,9 @@ function limpiarFormulario() {
   campoDescripcion.className = "form-control";
   campoCantidad.className = "form-control";
   campoURL.className = "form-control";
+  //tarea de limpiar todoas las clases
+  //limpiar la variable booleana
+  productoExistente = false;
 }
 
 function guardarLocalStorage() {
